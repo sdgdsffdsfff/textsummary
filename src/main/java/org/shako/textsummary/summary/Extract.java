@@ -1,4 +1,4 @@
-package org.shako.summary;
+package org.shako.textsummary.summary;
 
 public class Extract {
 

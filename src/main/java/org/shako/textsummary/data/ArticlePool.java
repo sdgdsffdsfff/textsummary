@@ -1,4 +1,4 @@
-package org.shako.data;
+package org.shako.textsummary.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 class ArticlePool {
 
 	private List<Article> articles;
-	private int size;
 	
 	public ArticlePool() {
 		articles = new ArrayList<Article>();
@@ -14,7 +13,10 @@ class ArticlePool {
 	
 	public int put(Article article) {
 		articles.add(article);
-		size++;
-		return size;
+		return getSize();
+	}
+	
+	public int getSize() {
+		return articles.size();
 	}
 }

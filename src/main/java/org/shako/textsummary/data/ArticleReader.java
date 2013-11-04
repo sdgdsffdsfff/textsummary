@@ -1,24 +1,24 @@
-package org.shako.data;
+package org.shako.textsummary.data;
 
 public class ArticleReader {
 	
 	private ArticlePool pool;
+	
 	private ArticleReader() {
 		pool = new ArticlePool();
 	}
 	
-	public ArticleReader getReader() {
+	public static ArticleReader getReader() {
 		return _ArticleReader._articleReader;
 	}
-	
+	/**
+	 * singleton 
+	 * @author shako
+	 *
+	 */
 	private static class _ArticleReader {
 		public static ArticleReader _articleReader = new ArticleReader();
 	}
 	
-	/******************* methods **************/
 	
-	public void read(String filePath) {
-		
-		Article article = new Article();
-	}
 }

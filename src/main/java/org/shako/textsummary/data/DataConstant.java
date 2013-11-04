@@ -1,4 +1,4 @@
-package org.shako.data;
+package org.shako.textsummary.data;
 
 class DataConstant {
 	
