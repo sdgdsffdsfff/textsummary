@@ -18,10 +18,6 @@ public class Token {
 	public String getData() {
 		return data;
 	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
 	
 	public void addMore(Integer sentence) {
 		Integer num = 0;
@@ -38,6 +34,14 @@ public class Token {
 
 	public boolean isInSentence(Integer sentence) {
 		return this.appearInSentence.containsKey(sentence);
+	}
+	
+	public Integer getCountInSentence(Integer sentence) {
+		if(isInSentence(sentence)) {
+			return this.appearInSentence.get(sentence);
+		} else {
+			return 0;
+		}
 	}
 	
 	@Override

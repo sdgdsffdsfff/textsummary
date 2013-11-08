@@ -1,4 +1,4 @@
-package org.shako.textsummary.data.inner.test;
+package org.shako.textsummary.test;
 
 import java.util.Arrays;
 import java.util.List;
