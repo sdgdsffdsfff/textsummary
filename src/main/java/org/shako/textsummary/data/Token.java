@@ -2,12 +2,14 @@ package org.shako.textsummary.data;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Token {
 	
 	private String data;
 	private int frequency;
 	private Map<Integer, Integer> appearInSentence;
+	private int contribution;
 	
 	public Token(String data) {
 		this.data = data;
@@ -36,12 +38,16 @@ public class Token {
 		return this.appearInSentence.containsKey(sentence);
 	}
 	
-	public Integer getCountInSentence(Integer sentence) {
+	public Integer getNumInSentence(Integer sentence) {
 		if(isInSentence(sentence)) {
 			return this.appearInSentence.get(sentence);
 		} else {
 			return 0;
 		}
+	}
+	
+	public Set<Integer> getSentences() {
+		return this.appearInSentence.keySet();
 	}
 	
 	@Override

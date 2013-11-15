@@ -1,6 +1,6 @@
-package org.shako.textsummary.data;
+package org.shako.textsummary.context;
 
-class DataConstant {
+class SummaryConstant {	
 	
 	/*********** sentence category *************/
 	/**
@@ -21,4 +21,6 @@ class DataConstant {
 	public static int TOKEN_FROM_TITLE = 12;
 	public static int TOKEN_FROM_OTHER = 13;
 	
+	/***********  **************/
+	public static int K_MEANS = 1;
 }
