@@ -63,5 +63,8 @@ class Cluster {
 		return tokens;
 	}
 	
+	public int size(){
+		return tokens.size();
+	}
 	
 }

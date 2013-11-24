@@ -1,6 +1,6 @@
 package org.shako.textsummary.context;
 
-class SummaryConstant {	
+public class SummaryConstant {	
 	
 	/*********** sentence category *************/
 	/**
@@ -22,5 +22,5 @@ class SummaryConstant {
 	public static int TOKEN_FROM_OTHER = 13;
 	
 	/***********  **************/
-	public static int K_MEANS = 1;
+	public static double LINK_RATIO = 0.25;
 }

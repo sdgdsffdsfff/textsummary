@@ -24,29 +24,28 @@ abstract class Utility {
 			WrapToken t = preList.get(0);
 			List<WrapToken> result = c.process(t, level);
 			preList.removeAll(result);
-			clus.add(c);
+			if(c.size() > 1)
+				clus.add(c);
 		}while(!preList.isEmpty());		
 		log.debug("cluster end in " + new Date().getTime());
 		return clus.toArray(new Cluster[0]);
 	}
 	
-	public static int calcRelLevel(int[] relates, int n) {
-		//冒泡排序找出最高的n条边，最小的即为阀值，返回出去
-		
+	//冒泡排序找出最高的n个值，最小的即为阀值，返回出去
+	public static double calcLevel(Double[] doubles, int n) {
 		for(int j = 0; j < n; j ++) {
-			int i = relates.length - 1;
+			int i = doubles.length - 1;
 			int k;
 			for(; i > 0; i--) {
 				k = i - 1;
-				if(relates[i] > relates[k]) {
-					int temp = relates[i];
-					relates[i] = relates[k];
-					relates[k] = temp;				
+				if(doubles[i] > doubles[k]) {
+					double temp = doubles[i];
+					doubles[i] = doubles[k];
+					doubles[k] = temp;				
 				}
 			}
 		}
-		log.debug("the level relate coefficient is :" + relates[n-1]);
-		return relates[n-1];
+		return doubles[n-1];
 	}
 	
 	public static int calcRelate(WrapToken first, WrapToken second) {
@@ -105,6 +104,12 @@ abstract class Utility {
 	}
 	
 	public static int calcContribution(WrapToken token, Cluster cluster) {
-		return 0;		
+		int score = 0;
+		for(WrapToken w : cluster.getTokens()){
+			if(token.getRelateToken().containsKey(w)){
+				score += token.getRelateToken().get(w);
+			}
+		}
+		return score;		
 	}
 }
