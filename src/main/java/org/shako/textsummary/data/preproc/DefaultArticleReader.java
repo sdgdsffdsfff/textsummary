@@ -1,9 +1,10 @@
-package org.shako.textsummary.dataprocess;
+package org.shako.textsummary.data.preproc;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -36,13 +37,9 @@ public class DefaultArticleReader implements IReader {
 			String s;
 			int i = 1;
 			while(( s = in.readLine()) != null){
-				Paragraph para = new Paragraph(i);
-				para.setData(s);
-				ctx.addParagraph(para);
 				i++;
 				// TODO read data from s;
 				// using tokenizer to generate sentence
-				
 			}
 			if(in != null)
 				in.close();

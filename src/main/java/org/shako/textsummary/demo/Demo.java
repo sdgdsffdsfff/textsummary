@@ -1,7 +1,7 @@
 package org.shako.textsummary.demo;
 
-import org.shako.textsummary.dataprocess.DefaultArticleReader;
-import org.shako.textsummary.dataprocess.IReader;
+import org.shako.textsummary.data.preproc.DefaultArticleReader;
+import org.shako.textsummary.data.preproc.IReader;
 
 public class Demo {
 

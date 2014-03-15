@@ -23,7 +23,7 @@ public class ArticleTest {
 		List<Token> _freqToken= article.getTokenByFrequency();
 		log.debug("/******** ArticleTest test_getTokenByFrequency **************/");
 		for(Token t : _freqToken) {
-			log.debug(t.toString() + ":" + t.getFrequency());
+			log.debug(t.toString() + ":" + t.getTotalNumber());
 		}
 	}
 	
@@ -35,8 +35,8 @@ public class ArticleTest {
 		Article article = new Article();
 		article.readNewSentence(data);
 		log.debug("/******** ArticleTest test_readNewSentence **************/");
-		for(Token t : article.getTokens().values()) {
-			log.debug(t.toString() + ":" + t.getFrequency());
+		for(Token t : article.getAllTokens()) {
+			log.debug(t.toString() + ":" + t.getTotalNumber());
 		}
 	}
 }

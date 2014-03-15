@@ -7,29 +7,38 @@ import org.shako.textsummary.data.Token;
 
 class WrapToken {
 	private Token data;
-	private Map<WrapToken, Integer> relateCoefficients;
+	private Map<WrapToken, Double> relations;
+	private double contrToArticle;
 	
 	public WrapToken(Token data) {
 		this.data = data;
-		relateCoefficients = new HashMap<WrapToken, Integer>();					
+		relations = new HashMap<WrapToken, Double>();					
 	}
 	
-	public Map<WrapToken, Integer> getRelateToken() {
-		return relateCoefficients;
+	public Map<WrapToken, Double> getRelateToken() {
+		return relations;
 	}
 
-	public void setCoefficient(WrapToken token, int coef) {
-		relateCoefficients.put(token, coef);
+	public void addRelation(WrapToken token, double coef) {
+		relations.put(token, coef);
 	}
 	
 	public Token getData() {
 		return data;
 	}
 	
-	public int getCoefficient(WrapToken token) {
-		return relateCoefficients.get(token);
+	public double getRelation(WrapToken token) {
+		return relations.get(token);
 	}
 	
+	public double getContrToArticle() {
+		return contrToArticle;
+	}
+
+	public void setContrToArticle(double contrToArticle) {
+		this.contrToArticle = contrToArticle;
+	}
+
 	@Override
  	public boolean equals(Object o)
 	{

@@ -9,18 +9,18 @@ import org.apache.log4j.Logger;
 
 class Cluster {
 	private List<WrapToken> tokens;
-	private int contribution;
+	private double contribution;
 	private static Logger log = Logger.getLogger(Cluster.class);
 	
 	public Cluster() {
 		this.tokens = new ArrayList<WrapToken>();
 	}
 	
-	public int getContributionToArticle() {
+	public double getContributionToArticle() {
 		return contribution;
 	}
 	
-	public void setContributionToArticle(int contribution) {
+	public void setContributionToArticle(double contribution) {
 		this.contribution = contribution;
 	}
 
@@ -40,7 +40,7 @@ class Cluster {
 		return tokens.contains(token);
 	}
 	
-	public List<WrapToken> process(WrapToken seed, int level){
+	public List<WrapToken> process(WrapToken seed, double level){
 		if(seed == null) {
 			log.info("add a null object to the graph, be careful!");
 		} else {
@@ -51,7 +51,7 @@ class Cluster {
 			while(!before.isEmpty()){
 				WrapToken t = before.pop();
 				push(t);
-				for(Entry<WrapToken, Integer> sub : t.getRelateToken().entrySet()){
+				for(Entry<WrapToken, Double> sub : t.getRelateToken().entrySet()){
 					WrapToken subToken = sub.getKey();
 					if(sub.getValue() >= level && !after.contains(subToken)){
 						before.push(subToken);

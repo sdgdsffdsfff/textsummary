@@ -1,4 +1,4 @@
-package org.shako.textsummary.dataprocess;
+package org.shako.textsummary.data.preproc;
 
 public interface IReader {
 	public Context read();
