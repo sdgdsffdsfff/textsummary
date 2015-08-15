@@ -4,13 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DefaultArticleReader implements IReader {
 
-	private static Logger log = Logger.getLogger(DefaultArticleReader.class);
+	private static Logger log = LoggerFactory.getLogger(DefaultArticleReader.class);
 	
 	private String filePath;
 	

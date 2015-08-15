@@ -5,12 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Cluster {
 	private List<WrapToken> tokens;
 	private double contribution;
-	private static Logger log = Logger.getLogger(Cluster.class);
+	private static Logger log = LoggerFactory.getLogger(Cluster.class);
 	
 	public Cluster() {
 		this.tokens = new ArrayList<WrapToken>();

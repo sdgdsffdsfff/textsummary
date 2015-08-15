@@ -1,10 +1,9 @@
-package org.shako.textsummary.test;
+package org.shako.textsummary;
 
-import org.junit.Test;
-
+import org.testng.annotations.Test;
 
 public class TestCase {
-	
+
 	@Test
 	public void extract() {
 		String a = "test";
