@@ -1,73 +1,61 @@
 package org.shako.textsummary.data;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Token {
-	
+
 	private String data;
-	private int frequency;
-	private Map<Integer, Integer> appearInSentence;
-	
+	private double totalNumber;
+	private HashMap<Integer, Integer> appearInSentence;
+
 	public Token(String data) {
 		this.data = data;
-		this.frequency = 0;
+		this.totalNumber = 0;
 		this.appearInSentence = new HashMap<Integer, Integer>();
 	}
 
-	public String getData() {
+	public String getValue() {
 		return data;
 	}
 
-	public void setData(String data) {
-		this.data = data;
-	}
-	
-	public void addMore(Integer sentence) {
-		Integer num = 0;
-		if(isInSentence(sentence)) {
-			num = this.appearInSentence.get(sentence) + 1;
-		}
-		this.appearInSentence.put(sentence, num);
-		this.frequency += 1;
-	}
-	
-	public int getFrequency() {
-		return frequency;
+	public void addToSentence(Integer sentence) {
+		this.appearInSentence.put(sentence, isInSentence(sentence) + 1);
+		this.totalNumber += 1;
 	}
 
-	public boolean isInSentence(Integer sentence) {
-		return this.appearInSentence.containsKey(sentence);
+	public double getTotalNumber() {
+		return totalNumber;
 	}
-	
+
+	public Integer isInSentence(Integer sentence) {
+		return this.appearInSentence.get(sentence);
+	}
+
 	@Override
- 	public boolean equals(Object o)
-	{
-		if(this == o)
-		{
+	public boolean equals(Object o) {
+		if (this == o) {
 			return true;
 		}
-		
-		if(!(o instanceof Token))
-		{
+
+		if (!(o instanceof Token)) {
 			return false;
-		}
-		else
-		{
-			Token other = (Token)o;
+		} else {
+			Token other = (Token) o;
 			return this.data.equals(other.data);
 		}
 	}
-	
+
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return data.hashCode();
 	}
-	
+
 	@Override
-	public String toString()
-	{
-		return data;		
+	public String toString() {
+		return data;
+	}
+
+	public Integer[] getSentences() {
+		return appearInSentence.keySet().toArray(new Integer[0]);
 	}
 }
