@@ -1,16 +1,25 @@
 package org.shako.textsummary.demo;
 
-import org.shako.textsummary.data.preproc.DefaultArticleReader;
-import org.shako.textsummary.data.preproc.IReader;
+import org.shako.textsummary.ArticleReader;
+import org.shako.textsummary.Strategy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.Test;
 
 public class Demo {
 
+	private static Logger log = LoggerFactory.getLogger(Demo.class);
+
 	/**
+	 * default strategy
+	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		IReader arti = new DefaultArticleReader("src/main/resource/demo");
-		arti.read();
+	@Test
+	public void test() {
+		new ArticleReader(Strategy.Default).read("src/main/resource/demo").getLines().forEach(line -> {
+			log.debug(line);
+		});
 	}
 
 }
