@@ -1,65 +1,34 @@
-package org.shako.textsummary.data;
+/*package org.shako.textsummary.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 class Sentence {
 	
-	/**
-	 * sentence structure
-	 */
-	private int category;
-	private int position;
-	private int length;
-	/**
-	 * sentence occur in which section
-	 */
-	private int section;
-	/**
+	*//**
 	 * id in article
-	 */
+	 *//*
 	private int identity;
+	private HashMap<Token, Integer> tokens;
 	
-	/**
+	*//**
 	 * 
 	 * @param identity
-	 */
+	 *//*
 	public Sentence(int identity) {
-		init(identity);
+		this.identity = identity;
+		tokens = new HashMap<Token, Integer>();
 	}
 	
-	private void init(int identity) {
-		this.length = 0;
-		this.identity = identity;
-		this.tokens = new ArrayList<String>();
-	}
-
-	private List<String> tokens;
-	/**
-	 * 
-	 * @param identity
-	 * @param category
-	 * @param section
-	 * @param position
-	 */
-	public Sentence(int identity, int category, int section, int position) {
-		this.identity = identity;
-		this.category = category;
-		this.length = 0;
-		this.position = position;
-		this.section = section;
-	}
-	
-	public int addToken(String data) {
+	public void addToken(Token data) {
 		if(!isContainToken(data)) {
-			this.tokens.add(data);
+			this.tokens.put(data, new Integer(1));
+		} else {
+			this.tokens.get(data)1;
 		}
-		length = length + 1;
-		return length;
 	}
 	
-	public boolean isContainToken(String data) {
-		return this.tokens.contains(data);
+	public boolean isContainToken(Token data) {
+		return this.tokens.containsKey(data);
 	}
 	
-}
+}*/
